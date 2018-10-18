@@ -2,8 +2,17 @@ var express = require('express');
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/register', function(req, res, next) {
+  const { name, email, password } = req.body.userData;
+
+  const dataToInsert = {
+    name, 
+    email,
+    password
+  }
+
+  res.json(dataToInsert);
+
 });
 
 module.exports = router;
