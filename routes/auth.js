@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-
+//config
+const config = require('../config');  
 //jwt
 var jwt = require('jsonwebtoken');
 
@@ -19,20 +20,17 @@ router.post('/login', (req, res, next) => {
             message: "E-mail e/or password invalid"
         });
     } else {
+        // find user in MongoDB
         let tokenData = {
             id: 101
         }
-        let generatedToken = jwt.sign(tokenData, 'somepass', { expiresIn: '1m' });
+        let generatedToken = jwt.sign(tokenData, config.JWT_KEY, { expiresIn: '1m' });
         res.json({
             success: true,
             token: generatedToken
         })
     }
 
-
-    res.json({
-        sendEmail: email
-    })
 })
 
 
