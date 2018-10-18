@@ -12,6 +12,15 @@
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "jsonwebtoken": "^8.3.0",
+    "mongodb": "^3.1.8",
     "morgan": "~1.9.0"
+  },
+  "engines": {
+    "node": "8.11.3"
+  },
+  "now": {
+    "engines": {
+      "node": "8.11.3"
+    }
   }
 }
