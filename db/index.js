@@ -12,4 +12,12 @@ MongoClient.connect(config.MONGO_URL, (err, database) => {
     } else {
         console.log('Not possible to established the connection to MongoDB')
     }
-})
+});
+
+module.exports = {
+    register: (data, handler) => {
+        collection.insertOne(data, (err, result) => {
+            handler(err, result);
+        })
+    }
+}
