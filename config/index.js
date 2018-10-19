@@ -1,6 +1,6 @@
 const config = {}
 
 config.JWT_KEY = 'devdeck101';
-config.MONGO_URL = 'mongodb://<dbuser>:<dbpassword>@ds235833.mlab.com:35833/fgf'
+config.MONGO_URL = 'mongodb://localhost:27017/devdeck101';
 
 module.exports = config;

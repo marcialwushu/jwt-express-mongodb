@@ -3,7 +3,7 @@ var router = express.Router();
 var db = require('../db');
 
 /* GET users listing. */
-router.post('/register', function(req, res, next) {
+router.post('/register', (req, res, next) => {
   const { name, email, password } = req.body.userData;
 
   const dataToInsert = {
@@ -12,7 +12,9 @@ router.post('/register', function(req, res, next) {
     password
   }
 
-  const handle = (err) => {
+
+    
+  const handle = (err, result) => {
     if(!err){
       res.json({
         success: true,
@@ -24,10 +26,11 @@ router.post('/register', function(req, res, next) {
         success: false,
         message: 'User not registered',
         error: err
-      })
+      });
     }
-    db.register(dataToInsert, handler)
+    
   }
+  db.register(dataToInsert, handler);
 
 });
 
