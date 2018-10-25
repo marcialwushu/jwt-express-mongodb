@@ -5,13 +5,14 @@ var MongoClient = require('mongodb').MongoClient;
 //var db;
 //var collection;
 MongoClient.connect(config.MONGO_URL, { useNewUrlParser: true }, (err, database) => {
-    if(!err) throw err;
+    if(!err) return someCallback(err);
 
     var db = database.db('devdeck101');
+    console.log(db);
 
     db.collection('users').findOne({}, function (findErr, result) {
-        if (findErr) throw findErr;
-        console.log(result.name);
+        if (findErr) return someCallback(findErr);
+        // console.log(result);
         database.close();
     });
 
