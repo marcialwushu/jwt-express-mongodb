@@ -14,22 +14,22 @@ router.post('/register', (req, res, next) => {
 
 
     
-  // const handle = (err, result) => {
-  //   if(!err){
-  //     res.json({
-  //       success: true,
-  //       message: 'User registered',
-  //       data: result
-  //     });
-  //   } else {
-  //     res.json({
-  //       success: false,
-  //       message: 'User not registered',
-  //       error: err
-  //     });
-  //   }
+  const handle = (err, result) => {
+    if(!err){
+      res.json({
+        success: true,
+        message: 'User registered',
+        data: result
+      });
+    } else {
+      res.json({
+        success: false,
+        message: 'User not registered',
+        error: err
+      });
+    }
     
-  // }
+  }
   res.register(dataToInsert, handler);
 
 });
